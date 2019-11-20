@@ -66,7 +66,10 @@ def update_message(info, updated_info):
 
 
 def send_message():
-    pass
+    files = {"answer": ("answer", open("answer.json", "rb"), 'multipart/form-data')}
+
+    response = requests.post(SEND_API_URL, files=files)
+    print(response.json())
 
 
 if __name__ == '__main__':
